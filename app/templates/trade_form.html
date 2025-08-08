@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 class="mb-4">{{ title }}</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                {{ form.symbol.label(class="form-label") }}
+                {{ form.symbol(class="form-control") }}
+                {% for error in form.symbol.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4 mb-3">
+                {{ form.market.label(class="form-label") }}
+                {{ form.market(class="form-control") }}
+                {% for error in form.market.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4 mb-3">
+                {{ form.direction.label(class="form-label") }}
+                {{ form.direction(class="form-select") }}
+                {% for error in form.direction.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                {{ form.entry_price.label(class="form-label") }}
+                {{ form.entry_price(class="form-control") }}
+                {% for error in form.entry_price.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4 mb-3">
+                {{ form.exit_price.label(class="form-label") }}
+                {{ form.exit_price(class="form-control") }}
+                {% for error in form.exit_price.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4 mb-3">
+                {{ form.quantity.label(class="form-label") }}
+                {{ form.quantity(class="form-control") }}
+                {% for error in form.quantity.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                {{ form.stop_loss.label(class="form-label") }}
+                {{ form.stop_loss(class="form-control") }}
+                {% for error in form.stop_loss.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4 mb-3">
+                {{ form.take_profit.label(class="form-label") }}
+                {{ form.take_profit(class="form-control") }}
+                {% for error in form.take_profit.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4 mb-3">
+                {{ form.fees.label(class="form-label") }}
+                {{ form.fees(class="form-control") }}
+                {% for error in form.fees.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                {{ form.risk.label(class="form-label") }}
+                {{ form.risk(class="form-control") }}
+                {% for error in form.risk.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="mb-3">
+            {{ form.notes.label(class="form-label") }}
+            {{ form.notes(class="form-control", rows=3) }}
+            {% for error in form.notes.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.emotions.label(class="form-label") }}
+            {{ form.emotions(class="form-control", rows=2) }}
+            {% for error in form.emotions.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.rule_adherence.label(class="form-label") }}
+            {{ form.rule_adherence(class="form-control", rows=2) }}
+            {% for error in form.rule_adherence.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+    </form>
+{% endblock %}
